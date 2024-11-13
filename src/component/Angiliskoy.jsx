@@ -1,29 +1,42 @@
 import React from 'react';
-import image1 from "../assats/Picture ⏵ kespa.webp.png";
+import Image from '../assats/Picture ⏵ kespa.webp.png';
 
-const Angiliskoy = () => {
-    return (
-        <div className='bg-gray-200 px-40 py-20'>
-            <div className="flex ">
-                <img className='w-[52%]' src={image1} alt="" />
-                <div className="px-20 py-4 w-[52%]">
-                    <h1 className='font-bold text-3xl '>Год английского языка!</h1>
-                    <p className='py-4'>Пройдите 3 модуля из первого курса и получите доступ
-                        к урокам английского языка от Skillbox на год.</p>
-                    <p >Предложение действует для пользователей Skillbox,
-                        которые купили любую профессию с 1 августа
-                        2021 года.</p>
-                    <h1 className='font-bold text-2xl py-3'>Вас ждут:</h1>
-                    <p>методика ускоренного запоминания слов и грамматики;</p>
-                    <p className='py-4'>персональная программа обучения, которая поможет
-                        заговорить по‑английски с нуля.</p>
-                        <div className="py-5">
-                            <button className='bg-blue-500 w-32 h-10 rounded-2xl'>Записаться</button>
-                        </div>
-                </div>
-            </div>
+function EnglishYearPromo() {
+  return (
+    <div className="bg-gray-50 p-6 rounded-lg shadow-lg max-w-3xl mx-auto my-8">
+      <div className="flex flex-col md:flex-row items-center">
+        {/* Image section */}
+        <div className="w-full md:w-1/2 flex justify-center mb-4 md:mb-0">
+          <img 
+            src={Image} 
+            alt="Promo image" 
+            className="w-full max-w-xs md:max-w-sm"
+          />
         </div>
-    );
+
+        {/* Text section */}
+        <div className="w-full md:w-1/2 md:pl-6 text-center md:text-left">
+          <h2 className="text-2xl font-bold mb-4">Год английского языка!</h2>
+          <p className="mb-4 text-gray-700">
+            Пройдите 3 модуля из первого курса и получите доступ к урокам английского языка от Skillbox на год.
+          </p>
+          <p className="text-gray-700 mb-4">
+            Предложение действует для пользователей Skillbox, которые купили любую профессию с 1 августа 2021 года.
+          </p>
+          
+          <h3 className="text-lg font-semibold mb-2">Вас ждут:</h3>
+          <ul className="text-gray-700 list-disc list-inside mb-4">
+            <li>методика ускоренного запоминания слов и грамматики;</li>
+            <li>персональная программа обучения, которая поможет заговорить по-английски с нуля.</li>
+          </ul>
+          
+          <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+            Записаться
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Angiliskoy;
+export default EnglishYearPromo;

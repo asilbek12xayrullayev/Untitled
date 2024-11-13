@@ -1,152 +1,85 @@
 import React from 'react';
 
-const CourseInfo = () => {
+function CoursePricingForm() {
   return (
-    <div style={styles.container}>
-      {/* Course Cost Section */}
-      <div style={styles.costSection}>
-        <h2 style={styles.heading}>Стоимость курса</h2>
-        <div style={styles.discountBox}>
-          <span style={styles.discountText}>Скидка действует</span>
-          <span style={styles.discountAmount}>-60%</span>
+    <div className="bg-blue-50 min-h-screen flex items-center justify-center p-4">
+      <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-8 rounded-lg shadow-lg">
+        
+        {/* Pricing Section */}
+        <div className="bg-gray-50 p-6 rounded-lg">
+          <h2 className="text-2xl font-bold mb-4">Стоимость курса</h2>
+          <p className="text-gray-500 mb-4">Старт курса: 8 июля<br />Осталось: 6 мест</p>
+          
+          <div className="bg-yellow-100 p-4 rounded-lg flex justify-between items-center mb-4">
+            <span className="font-bold text-yellow-400">Скидка действует</span>
+            <span className="bg-yellow-300 text-white text-lg font-semibold px-3 py-1 rounded-lg">-60%</span>
+          </div>
+          
+          <div className="text-4xl font-bold text-gray-900 mb-2">
+            882 384 сум/мес
+          </div>
+          <p className="text-gray-500 line-through mb-4">2 205 969 сум/мес</p>
+          
+          <ul className="text-gray-700 space-y-2">
+            <li>Курс в подарок</li>
+            <li>Длительность рассрочки — 12 месяцев</li>
+            <li>Год английского бесплатно</li>
+          </ul>
         </div>
-        <p style={styles.price}>
-          <s>2,206,960</s> сум/мес
-        </p>
-        <p style={styles.discountedPrice}>882,384 сум/мес</p>
-        <p style={styles.installmentText}>В рассрочку на 12 мес</p>
-        <ul style={styles.featuresList}>
-          <li>Курс в подарок</li>
-          <li>Длительность рассрочки — 12 месяцев</li>
-          <li>Год английского бесплатно</li>
-        </ul>
-      </div>
 
-      {/* Course Registration Section */}
-      <div style={styles.registrationSection}>
-        <h2 style={styles.heading}>Записаться на курс или получить бесплатную консультацию</h2>
-        <form style={styles.form}>
-          <input type="text" placeholder="Имя" style={styles.input} />
-          <input type="tel" placeholder="Телефон" style={styles.input} />
-          <input type="email" placeholder="Электронная почта" style={styles.input} />
-          <label style={styles.checkboxLabel}>
-            <input type="checkbox" style={styles.checkbox} />
-            Я юридическое лицо
-          </label>
-          <button type="submit" style={styles.button}>Записаться на курс</button>
-        </form>
-        <p style={styles.privacyText}>
-          Отправляя заявку, вы даёте согласие на обработку своих персональных данных в соответствии с
-          <a href="#" style={styles.link}> политикой конфиденциальности</a>
-        </p>
+        {/* Registration Form */}
+        <div className="bg-white p-6 rounded-lg">
+          <h2 className="text-2xl font-bold mb-4">Записаться на курс или получить бесплатную консультацию</h2>
+          
+          <form className="space-y-4">
+            <div>
+              <input 
+                type="text" 
+                placeholder="Имя" 
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500" 
+              />
+            </div>
+            
+            <div className="flex gap-2">
+              <select className="border border-gray-300 rounded-lg px-4 py-2 w-1/3 focus:outline-none focus:border-blue-500">
+                <option value="+998">+998</option>
+                <option value="+7">+7</option>
+                <option value="+1">+1</option>
+              </select>
+              <input 
+                type="tel" 
+                placeholder="Телефон" 
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500" 
+              />
+            </div>
+            
+            <div>
+              <input 
+                type="email" 
+                placeholder="Электронная почта" 
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500" 
+              />
+            </div>
+
+            <div className="flex items-center">
+              <input type="checkbox" id="isLegalEntity" className="mr-2" />
+              <label htmlFor="isLegalEntity" className="text-gray-700">Я юридическое лицо</label>
+            </div>
+            
+            <button 
+              type="submit" 
+              className="w-full bg-blue-600 text-white font-semibold rounded-lg px-4 py-2 hover:bg-blue-700 transition">
+              Записаться на курс
+            </button>
+            
+            <p className="text-xs text-gray-500 mt-4">
+              Отправляя заявку, вы даёте согласие на обработку своих персональных данных в соответствии с <a href="#" className="text-blue-600 underline">политикой конфиденциальности</a>.
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   );
-};
+}
 
-const styles = {
-  container: {
-    display: 'flex',
-    gap: '20px',
-    backgroundColor: '#f0f9ff', // Light blue background
-    padding: '20px',
-    borderRadius: '8px',
-    justifyContent: 'center'
-  },
-  costSection: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: '20px',
-    borderRadius: '8px',
-    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)'
-  },
-  heading: {
-    fontSize: '20px',
-    fontWeight: 'bold',
-    marginBottom: '10px'
-  },
-  discountBox: {
-    display: 'flex',
-    alignItems: 'center',
-    backgroundColor: '#ffd700',
-    padding: '10px',
-    borderRadius: '8px',
-    color: '#000',
-    marginBottom: '10px'
-  },
-  discountText: {
-    marginRight: 'auto'
-  },
-  discountAmount: {
-    fontWeight: 'bold',
-    fontSize: '20px'
-  },
-  price: {
-    fontSize: '16px',
-    color: '#aaa',
-    textDecoration: 'line-through'
-  },
-  discountedPrice: {
-    fontSize: '24px',
-    fontWeight: 'bold',
-    color: '#000'
-  },
-  installmentText: {
-    fontSize: '14px',
-    color: '#aaa'
-  },
-  featuresList: {
-    marginTop: '20px',
-    lineHeight: '1.6'
-  },
-  registrationSection: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: '20px',
-    borderRadius: '8px',
-    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)'
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '10px'
-  },
-  input: {
-    padding: '10px',
-    fontSize: '16px',
-    borderRadius: '8px',
-    border: '1px solid #ddd'
-  },
-  checkboxLabel: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '10px',
-    fontSize: '14px'
-  },
-  checkbox: {
-    width: '16px',
-    height: '16px'
-  },
-  button: {
-    backgroundColor: '#6200ee', // Purple background
-    color: '#fff',
-    padding: '10px',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    borderRadius: '8px',
-    border: 'none',
-    cursor: 'pointer',
-    marginTop: '10px'
-  },
-  privacyText: {
-    fontSize: '12px',
-    marginTop: '10px',
-    color: '#777'
-  },
-  link: {
-    color: '#6200ee',
-    textDecoration: 'none'
-  }
-};
-
-export default CourseInfo;
+export default CoursePricingForm;
