@@ -28,9 +28,9 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center bg-blue-50 p-8 rounded-lg shadow-md space-y-6 md:space-y-0 md:space-x-8 max-w-4xl mx-auto">
+    <div className="flex flex-col md:flex-row items-center justify-center bg-blue-50 p-8 rounded-lg  space-y-6 md:space-y-0 md:space-x-8 max-w-8xl mx-auto">
       <div className="w-full md:w-1/2 text-left">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+        <h2 className="text-2xl font-semibold w-[40%] mb-4">
           Получить презентацию курса и консультацию специалиста
         </h2>
       </div>

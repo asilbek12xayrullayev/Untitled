@@ -1,104 +1,80 @@
-import React, { useState } from "react";
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const ResponsiveCarousel = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const slides = [
-        {
-            title: "Резюме",
-            description: "Представим вас работодателям с выгодной стороны",
-            bgColor: "bg-yellow-300",
+const CareerCenterCarousel = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024, // O'rta ekranlarda
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
         },
-        {
-            title: "Индивидуальный карьерный план",
-            description: "Расскажем, как начать и развивать карьеру",
-            bgColor: "bg-blue-200",
+      },
+      {
+        breakpoint: 640, // Kichik ekranlarda
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
-        {
-            title: "Партнерские вакансии",
-            description: "Порекомендуем вашу кандидатуру партнёрам",
-            bgColor: "bg-green-300",
-        },
-        {
-            title: "Оформление портфолио",
-            description: "Поможем эффективно представить ваши проекты",
-            bgColor: "bg-red-300",
-        },
-    ];
+      },
+    ],
+  };
 
-    const nextSlide = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === slides.length - 1 ? 0 : prevIndex + 1
-        );
-    };
+  const cards = [
+    {
+      title: "Резюме",
+      description: "Презентуем вас работодателям с выгодной стороны",
+      bgColor: "bg-yellow-200",
+    },
+    {
+      title: "Индивидуальный карьерный план",
+      description: "Расскажем, как начать и развивать карьеру",
+      bgColor: "bg-blue-100",
+    },
+    {
+      title: "Партнерские вакансии",
+      description: "Порекомендуем вашу кандидатуру партнёрам",
+      bgColor: "bg-green-200",
+    },
+    {
+      title: "Оформление портфолио",
+      description: "Поможем эффективно представить ваши проекты",
+      bgColor: "bg-red-100",
+    },
+  ];
 
-    const prevSlide = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? slides.length - 1 : prevIndex - 1
-        );
-    };
-
-    return (
-        <div className="bg-black min-h-[500px] flex flex-col items-center justify-center py-8 px-4">
-            {/* Sarlavha */}
-            <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-6 text-center">
-                Чем вам поможет Наш партнер Центр развития карьеры:
-            </h2>
-
-            {/* Karusel */}
-            <div className="relative max-w-2xl w-full">
-                {/* Kartalar */}
-                <div
-                    className="flex transition-transform duration-300 ease-in-out"
-                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                >
-                    {slides.map((slide, index) => (
-                        <div
-                            key={index}
-                            className={`min-w-full h-[90%] flex-shrink-0 p-6 rounded-lg shadow-lg ${slide.bgColor}`}
-                        >
-                            {/* Karta ichidagi elementlar */}
-                            <div className="flex flex-col items-start text-left">
-                                {/* Dumaloq belgi */}
-                                <div className="w-8 h-8 rounded-full bg-black mb-4"></div>
-                                {/* Sarlavha va tavsif */}
-                                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                    {slide.title}
-                                </h3>
-                                <p className="text-sm text-gray-700">{slide.description}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Tugmalar */}
-                <button
-                    className="absolute top-1/2 -left-2 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full hover:bg-gray-800"
-                    onClick={prevSlide}
-                >
-                    {"<"}
-                </button>
-                <button
-                    className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full hover:bg-gray-800"
-                    onClick={nextSlide}
-                >
-                    {">"}
-                </button>
+  return (
+    <div className="w-full bg-gray-900 py-10 px-4">
+      <h2 className="text-center text-white text-2xl font-bold mb-6">
+        Чем вам поможет Наш партнер Центр развития карьеры:
+      </h2>
+      <div className="max-w-7xl mx-auto">
+        <Slider {...settings}>
+          {cards.map((card, index) => (
+            <div key={index} className="px-4">
+              <div
+                className={`h-60 rounded-lg shadow-lg flex flex-col justify-center p-6 ${card.bgColor}`}
+              >
+                <div className="w-5 h-5 bg-black rounded-full mb-4"></div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {card.title}
+                </h3>
+                <p className="text-gray-700">{card.description}</p>
+              </div>
             </div>
-
-            {/* Indikatorlar */}
-            <div className="flex justify-center mt-4 space-x-2">
-                {slides.map((_, index) => (
-                    <button
-                        key={index}
-                        className={`w-3 h-3 rounded-full ${currentIndex === index ? "bg-gray-300" : "bg-gray-500"
-                            }`}
-                        onClick={() => setCurrentIndex(index)}
-                    ></button>
-                ))}
-            </div>
-        </div>
-    );
+          ))}
+        </Slider>
+      </div>
+    </div>
+  );
 };
 
-export default ResponsiveCarousel;
+export default CareerCenterCarousel;

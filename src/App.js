@@ -16,7 +16,6 @@ import Otzifi from './component/Otzifi';
 import Ibs from './component/Ibs';
 import Vxodid from './component/Vxodid';
 import Kursov from './component/Kursov';
-import Pogrujine from './component/Pogrujine';
 import Poluchit from './component/Poluchit';
 import Uchastnikov from './component/Uchastnikov';
 import Spiker from './component/Spiker';
@@ -45,7 +44,6 @@ const App = () => {
       <Ibs />
       <Vxodid />
       <Kursov />
-      <Pogrujine />
       <Poluchit />
       <Uchastnikov/>
       <Spiker/>

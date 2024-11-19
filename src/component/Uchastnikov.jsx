@@ -1,77 +1,80 @@
-import Image from '../assats/div.ui-text-review-header__avatar-wrapper.png';
-import React, { useState } from 'react';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
 
-const testimonials = [
-  {
-    id: 1,
-    name: 'Никита Пак',
-    course: 'Профессия Python-разработчик',
-    rating: 5,
-    feedback: `Нравится постоянная обратная связь от платформы и куратора. Большое количество практических работ, позволяющих моментально применять полученные знания.`,
-    social: 'ВКонтакте',
-    avatar: '/path/to/avatar1.png',
-  },
-  {
-    id: 2,
-    name: 'Иван Медведев, г. Ивантеевка',
-    course: 'Профессия Инженер по тестированию',
-    rating: 5,
-    feedback: `Если какой-то материал тяжело даётся, есть вопросы к преподавателю, который поможет разобраться и ответить.`,
-    social: 'ВКонтакте',
-    avatar: '/path/to/avatar2.png',
-  },
-  // Add more testimonials as needed
-];
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-function TestimonialCarousel() {
-  const [current, setCurrent] = useState(0);
-
-  const handleNext = () => {
-    setCurrent((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const handlePrev = () => {
-    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+const TestimonialsCarousel = () => {
+  const testimonials = [
+    {
+      name: "Никита Пак",
+      profession: "Курс «Профессия Python-разработчик»",
+      review:
+        "Нравится постоянная обратная связь от платформы и куратора. Большое количество практических работ, позволяющих моментально применять полученные знания.",
+      rating: 5,
+      link: "ВКонтакте",
+    },
+    {
+      name: "Иван Медведев, г. Ивантеевка",
+      profession: "Курс «Профессия Инженер по тестированию»",
+      review:
+        "Если какой-то материал тяжело даётся, есть вопрос по ДЗ, всегда есть преподаватели, которые помогут разобраться с информацией.",
+      rating: 5,
+      link: "ВКонтакте",
+    },
+  ];
 
   return (
-    <div className="max-w-5xl mx-auto my-8 p-4">
-      <h2 className="text-2xl font-bold mb-4 text-center">Отзывы участников</h2>
-      
-      <div className="flex items-center justify-center gap-4">
-        <button onClick={handlePrev} className="text-2xl p-2">‹</button>
-        
-        <div className="flex flex-col md:flex-row gap-4 overflow-hidden">
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md w-full md:w-80">
-            <div className="flex items-center gap-4">
-              <img src={Image} alt={testimonials[current].name} className="w-12 h-12 rounded-full" />
-              <div>
-                <h3 className="font-semibold">{testimonials[current].name}</h3>
-                <p className="text-sm text-gray-500">{testimonials[current].course}</p>
+    <div className="max-w-8xl mx-auto px-6 py-10">
+      <h2 className="text-center text-3xl md:text-5xl font-extrabold mb-8">
+        Отзывы участников
+      </h2>
+      <Swiper
+        navigation
+        pagination={{ clickable: true }}
+        modules={[Navigation, Pagination]}
+        spaceBetween={30}
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+          },
+          1024: {
+            slidesPerView: 2,
+          },
+        }}
+      >
+        {testimonials.map((testimonial, index) => (
+          <SwiperSlide key={index}>
+            <div className="bg-white shadow-md rounded-xl p-8 space-y-4">
+              <div className="flex items-center space-x-4">
+                {/* Foydalanuvchi bosh harfi */}
+                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center text-2xl font-semibold text-gray-700">
+                  {testimonial.name[0]}
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold">{testimonial.name}</h3>
+                  <p className="text-sm text-gray-500">{testimonial.profession}</p>
+                </div>
               </div>
+              <div className="text-yellow-400 text-lg">
+                {"★".repeat(testimonial.rating)}{" "}
+                {"☆".repeat(5 - testimonial.rating)}
+              </div>
+              <p className="text-gray-700">{testimonial.review}</p>
+              <a
+                href="#"
+                className="text-blue-600 underline font-medium text-sm"
+              >
+                {testimonial.link}
+              </a>
             </div>
-            <div className="mt-4 text-yellow-500">
-              {'★'.repeat(testimonials[current].rating)}
-            </div>
-            <p className="mt-4 text-gray-700">{testimonials[current].feedback}</p>
-            <div className="mt-4 text-blue-500">{testimonials[current].social}</div>
-          </div>
-        </div>
-
-        <button onClick={handleNext} className="text-2xl p-2">›</button>
-      </div>
-
-      <div className="flex justify-center mt-4 space-x-2">
-        {testimonials.map((_, index) => (
-          <span
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={`cursor-pointer w-3 h-3 rounded-full ${current === index ? 'bg-black' : 'bg-gray-300'}`}
-          ></span>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
-}
+};
 
-export default TestimonialCarousel;
+export default TestimonialsCarousel;

@@ -49,7 +49,7 @@ const TestimonialsCarousel = () => {
   };
 
   return (
-    <div className="bg-black py-12 px-6">
+    <div className="bg-black py-12 px-6 ">
       <h2 className="text-2xl font-bold text-white mb-6">Отзывы работодателей</h2>
       <Slider {...settings}>
         {testimonials.map((testimonial, index) => (

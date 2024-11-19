@@ -3,7 +3,7 @@ import Image from '../assats/Picture ⏵ kespa.webp.png';
 
 function EnglishYearPromo() {
   return (
-    <div className="bg-gray-50 p-6 rounded-lg shadow-lg max-w-3xl mx-auto my-8">
+    <div className="bg-gray-50 p-6 rounded-lg  max-w-8xl mx-auto my-8">
       <div className="flex flex-col md:flex-row items-center">
         {/* Image section */}
         <div className="w-full md:w-1/2 flex justify-center mb-4 md:mb-0">

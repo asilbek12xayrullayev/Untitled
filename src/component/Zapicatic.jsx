@@ -3,7 +3,7 @@ import React from 'react';
 function CoursePricingForm() {
   return (
     <div className="bg-blue-50 min-h-screen flex items-center justify-center p-4">
-      <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-8 rounded-lg shadow-lg">
+      <div className="max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-8 rounded-lg shadow-lg">
         
         {/* Pricing Section */}
         <div className="bg-gray-50 p-6 rounded-lg">

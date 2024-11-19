@@ -4,7 +4,7 @@ import image2 from "../assats/july_percent_sign2.png.png";
 
 const DeveloperCourseCard = () => {
     return (
-        <div className="bg-blue-100 p-8 md:p-12 rounded-lg max-w-5xl mx-auto flex flex-col md:flex-row items-center space-y-6 md:space-y-0">
+        <div className="bg-blue-100 p-8 md:p-12 rounded-lg max-w-9xl mx-auto flex flex-col md:flex-row items-center space-y-6 md:space-y-0">
             <div className="flex-1 text-center md:text-left space-y-4">
                 <p className="text-gray-500 text-sm md:text-base">ПЕРВЫЙ ПЛАТЕЖ НА 2-Й МЕСЯЦ</p>
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900">Профессия Разработчик</h1>

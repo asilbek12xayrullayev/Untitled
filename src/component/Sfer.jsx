@@ -12,8 +12,8 @@ const features = [
 
 const FeatureList = () => {
   return (
-    <div className="max-w-4xl mx-auto p-10 mt-10">
-      <h2 className="text-2xl font-semibold mb-6 text-center">На курсе вы</h2>
+    <div className="max-w-9xl mx-auto p-10 mt-10">
+      <h2 className="text-5xl font-semibold mb-6 ">На курсе вы</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
         {features.map((feature, index) => (
           <div key={index} className="flex items-start space-x-3">

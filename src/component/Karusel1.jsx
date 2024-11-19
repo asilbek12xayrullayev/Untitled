@@ -44,15 +44,15 @@ const Carousel = () => {
   }, [currentIndex]);
 
   return (
-    <div className="flex flex-col items-center ">
-      <h2 className="text-2xl font-bold my-4">Как проходит обучение на платформе</h2>
-      <div className="relative w-full max-w-lg p-4 bg-white rounded-lg shadow-lg flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 ">
+    <div className="flex flex-col ">
+      <h2 className="text-5xl font-bold my-4 px-5">Как проходит обучение на платформе</h2>
+      <div className="relative w-full max-w-9xl p-4 bg-white rounded-lg shadow-lg flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 ">
         <div className="w-full md:w-1/2 flex justify-center">
           <img src={imge} alt="Platform Preview" className="rounded-lg" />
         </div>
         <div className="w-full md:w-1/2">
           <div>
-            <h3 className="text-lg font-semibold mb-2">{slides[currentIndex].title}</h3>
+            <h3 className="text-4xl font-semibold mb-2">{slides[currentIndex].title}</h3>
             <p className="text-gray-600">{slides[currentIndex].description}</p>
           </div>
           <div className="flex justify-center mt-4 space-x-4">

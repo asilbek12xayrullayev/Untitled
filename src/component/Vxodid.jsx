@@ -3,7 +3,7 @@ import ExampleImage from "../assats/Picture ⏵ 3cbc29413e244e56f03f6badd073ca67
 
 const CourseIncludes = () => {
   return (
-    <div className="bg-gray-100 p-6 rounded-lg shadow-lg max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+    <div className="bg-gray-100 p-6 rounded-lg shadow-lg max-w-9xl px-[10%] mx-auto flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
       <img
         src={ExampleImage}
         alt="Course Icon"
